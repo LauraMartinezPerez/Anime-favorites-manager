@@ -1,0 +1,11 @@
+
+.list {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.img {
+    width: 50%;
+}
+
