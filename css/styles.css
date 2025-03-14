@@ -1,11 +1,34 @@
 
+.anime-container {
+    width: 100%;
+    margin-top: 50px;
+    background-color:bisque;
+    display: flex;
+    align-items: space-around;
+    gap: 100px;
+}
+
 .list {
-    width: 80%;
+    width: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
+    gap: 20px;
 }
+
+.favorites {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+}
+
 .img {
-    width: 50%;
+    width: 100%;
+}
+
+.js-anime-img {
+    cursor: pointer;
 }
 
