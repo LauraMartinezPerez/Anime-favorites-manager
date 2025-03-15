@@ -14,17 +14,18 @@ const renderFavoriteList = () => {
    
         if (serie.images.jpg.image_url === "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png") { 
             containerFavoriteList.innerHTML += 
-            `<li class="js-anime-img" id=${serie.mal_id}>
-                <img class="img"  src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg">
-                <p class="title">${serie.title}</p>
+            `<li class="js-anime-img anime-fav" id=${serie.mal_id}>
+                 <img class="img-fav"  src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg">
+                    <p class="title-fav">${serie.title}</p>
+                   <i class="fa-solid fa-circle-xmark"></i>
             </li>`
         } else {
             containerFavoriteList.innerHTML += 
-            `<li class="js-anime-img" id=${serie.mal_id}>
-                <img class="img"   src="${serie.images.jpg.image_url}">
-                <p class="title">${serie.title}</p>
+            `<li class="js-anime-img anime-fav" id=${serie.mal_id}>
+                <img class="img-fav"   src="${serie.images.jpg.image_url}">
+                <p class="title-fav">${serie.title}</p> 
+                <i class="fa-solid fa-circle-xmark"></i>
             </li>`
-
         } 
     }
 };
@@ -45,13 +46,13 @@ const renderLi = (animeData) => {
     for(const serie of animeData) {
         if (serie.images.jpg.image_url === "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png") { 
             list.innerHTML += 
-            `<li class="js-anime-img" id=${serie.mal_id}>
+            `<li class="js-anime-img anime" id=${serie.mal_id}>
                 <img class="img"  src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg">
                 <p class="title">${serie.title}</p>
              </li>`
         } else {
             list.innerHTML += 
-            `<li class="js-anime-img" id=${serie.mal_id}>
+            `<li class="js-anime-img anime" id=${serie.mal_id}>
                 <img class="img"   src="${serie.images.jpg.image_url}">
                 <p class="title">${serie.title}</p>
             </li>`
@@ -82,20 +83,19 @@ searchButton.addEventListener("click", searchclick);
 const handleFavorite = (event) => {
     const idAnimeClicked = parseInt(event.currentTarget.id);
 
+    //busco el anime clickado a partir de el id devuelto ---const idAnimeClicked---
+    const animeSelected = allAnimesData.find((anime) => {
+        return anime.mal_id === idAnimeClicked;
+    })
 
-//busco el anime clickado a partir de el id devuelto ---const idAnimeClicked---
-const animeSelected = allAnimesData.find((anime) => {
-    return anime.mal_id === idAnimeClicked;
-})
 
+    //añadir ese anime a la lista de favoritos ---let favoriteList = [];---
+    favoriteList.push(animeSelected);
 
-//añadir ese anime a la lista de favoritos ---let favoriteList = [];---
-favoriteList.push(animeSelected);
+    //Cuando vaya añadiendo favoritas a mi lista, voy guardando la lista en el localStorage
+    localStorage.setItem("favoritesAnimes", JSON.stringify(favoriteList));
 
-//Cuando vaya añadiendo favoritas a mi lista, voy guardando la lista en el localStorage
-localStorage.setItem("favoritesAnimes", JSON.stringify(favoriteList));
-
-//Pinto la lista de favoritos
-renderFavoriteList();
+    //Pinto la lista de favoritos
+    renderFavoriteList();
 };
 

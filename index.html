@@ -4,24 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Buscador de series</h1>
+        <h1 class="h1">Buscador de series anime</h1>
     </header>
-    <div>
-        <input type="text" class="js-search" placeholder="Buscar...">
-        <button class="js-button">Buscar</button>
-        <button type="reset" class="">Reset</button>
+    <div class="search-container">
+        <input type="text" class="js-search input" placeholder="Escribe tu anime...">
+        <button class="js-button btn-search">Buscar 🉐</button>
+        <button type="reset" class="btn-reset">Reset 💥</button>
     </div>
     
     <main>
         <div class="anime-container"> 
-            <ul class="list js-favorites-list"></ul>
-            <ul class="list js-list"></ul>
-        </div>
+            <div class="fav-container">
+                <p class="main-title">Series Favoritas</p>
+                <ul class=" js-favorites-list"></ul>
+            </div>
+            <div class="list-container">
+                <p class="main-title">Resultados</p>
+                <ul class="js-list ul-list"></ul>
+            </div>
     </main>
 
 <script src="./js/main.js"></script>

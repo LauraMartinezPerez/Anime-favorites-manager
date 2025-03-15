@@ -1,34 +1,156 @@
+.h1 {
+    padding: 20px;
+    font-family: "Bangers", system-ui;
+    letter-spacing: 3px;
+}
+
+.search-container {
+    padding: 20px;
+
+}
+
+.btn-search {
+    background-color: coral;
+    padding: 10px 30px;
+    color: yellow;
+    font-size: 20px;
+    font-family: "Bangers", system-ui;
+    letter-spacing: 3px;
+    border-radius: 10px;
+}
+.btn-reset {
+    background-color: rgb(80, 173, 255);
+    padding: 10px 30px;
+    color: yellow;
+    font-size: 20px;
+    font-family: "Bangers", system-ui;
+    letter-spacing: 3px;
+    border-radius: 10px;
+}
+
+.input {
+    width: 300px;
+    padding: 15px 5px;
+    border-radius: 10px;
+    border: coral solid 2px;
+}
 
 .anime-container {
     width: 100%;
+    padding: 20px;
     margin-top: 50px;
-    background-color:bisque;
+    background-color:black;
     display: flex;
-    align-items: space-around;
-    gap: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+
 }
 
-.list {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    gap: 20px;
+.list-container {
+    background-color: yellow;
+    width: 60%;
+    font-family: "Bangers", system-ui;
+    letter-spacing: 3px;
+
+
 }
 
-.favorites {
-    width: 20%;
+.ul-list {
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    padding: 5px;
+    width: 100%;
+    min-width: 500px;
+    max-width: 800px;
+}
+
+.main-title {
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    font-family: "Bangers", system-ui;
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+.anime {
+    width: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items:center ;
     gap: 20px;
+    padding: 10px;
 }
 
 .img {
     width: 100%;
+    padding: 10px;
+    background-color: coral;
+
 }
+
+.title {
+    font-family: "Bangers", system-ui;
+    letter-spacing: 2px;
+
+}
+
+.fav-container {
+    background-color: yellow;
+    font-family: "Bangers", system-ui;
+    letter-spacing: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    padding: 5px;
+    width: 35%;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+
+.anime-fav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    gap: 20px;
+    padding: 10px;
+}
+
+
+.title-fav {
+    font-family: "Bangers", system-ui;
+    letter-spacing: 2px;
+}
+.img-fav {
+    display: flex;
+    background-color: rgb(80, 173, 255);
+    padding: 10px;
+    align-items: center;
+    width: 150px;
+}
+
+.fa-solid {
+    color: coral;
+    font-size: 25px;
+}
+
+
 
 .js-anime-img {
     cursor: pointer;
 }
+
+
+
 
