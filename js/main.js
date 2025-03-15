@@ -7,6 +7,37 @@ const containerFavoriteList = document.querySelector(".js-favorites-list");
 let favoriteList = []; // este es el array que guarda los animes favoritos
 let allAnimesData = []; // este es el array global que guarda todos los animes
 
+// Función para pintar la lista de favoritos
+const renderFavoriteList = () => {
+    containerFavoriteList.innerHTML = "";
+    for(const serie of favoriteList) {
+   
+        if (serie.images.jpg.image_url === "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png") { 
+            containerFavoriteList.innerHTML += 
+            `<li class="js-anime-img" id=${serie.mal_id}>
+                <img class="img"  src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg">
+                <p class="title">${serie.title}</p>
+            </li>`
+        } else {
+            containerFavoriteList.innerHTML += 
+            `<li class="js-anime-img" id=${serie.mal_id}>
+                <img class="img"   src="${serie.images.jpg.image_url}">
+                <p class="title">${serie.title}</p>
+            </li>`
+
+        } 
+    }
+};
+
+
+// Al cargar la página, obtener los favoritos del localStorage
+const favoritesLocalStorage = localStorage.getItem("favoritesAnimes");
+if (favoritesLocalStorage !== null) {
+    favoriteList = JSON.parse(favoritesLocalStorage);
+    renderFavoriteList();
+}
+
+
 //Pintar del servidor segun busqueda --> de lo pintado seleccionar fav
 const renderLi = (animeData) => {
     allAnimesData = animeData;
@@ -25,12 +56,12 @@ const renderLi = (animeData) => {
                 <p class="title">${serie.title}</p>
             </li>`
 
-    } 
-}
-const allAnimes = document.querySelectorAll(".js-anime-img");
-for (const anime of allAnimes) {
-    anime.addEventListener("click", handleFavorite);
-}
+        } 
+    }
+    const allAnimes = document.querySelectorAll(".js-anime-img");
+        for (const anime of allAnimes) {
+         anime.addEventListener("click", handleFavorite);
+    }
 }
 
 // Buscar y llamar al servidor
@@ -39,7 +70,7 @@ const searchclick = (ev) => {
     const searchValue = searchInput.value;
     fetch(`https://api.jikan.moe/v4/anime?q=${searchValue}`)
         .then(response => response.json())
-        .then(patata /* ;) */ => {
+        .then(patata /* ;-) */ => {
         renderLi (patata.data);   
         }
     )
@@ -48,38 +79,23 @@ const searchclick = (ev) => {
 searchButton.addEventListener("click", searchclick);
 
 // Funcion seleccionar fav
-
 const handleFavorite = (event) => {
     const idAnimeClicked = parseInt(event.currentTarget.id);
-/*     console.log(idAnimeClicked); */
 
-    //busco el anime clickado a partir de el id devuelto ---const idAnimeClicked---
+
+//busco el anime clickado a partir de el id devuelto ---const idAnimeClicked---
 const animeSelected = allAnimesData.find((anime) => {
     return anime.mal_id === idAnimeClicked;
 })
 
-/* console.log(animeSelected); */
 
-    //añadir ese anime a la lista de favoritos ---let favoriteList = [];---
+//añadir ese anime a la lista de favoritos ---let favoriteList = [];---
+favoriteList.push(animeSelected);
 
-   favoriteList.push(animeSelected);
-   /* console.log(favoriteList); */
-   containerFavoriteList.innerHTML = "";
-   for(const serie of favoriteList) {
-   
-        if (serie.images.jpg.image_url === "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png") { 
-            containerFavoriteList.innerHTML += 
-            `<li class="js-anime-img" id=${serie.mal_id}>
-                <img class="img"  src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg">
-                <p class="title">${serie.title}</p>
-            </li>`
-        } else {
-            containerFavoriteList.innerHTML += 
-            `<li class="js-anime-img" id=${serie.mal_id}>
-                <img class="img"   src="${serie.images.jpg.image_url}">
-                <p class="title">${serie.title}</p>
-            </li>`
+//Cuando vaya añadiendo favoritas a mi lista, voy guardando la lista en el localStorage
+localStorage.setItem("favoritesAnimes", JSON.stringify(favoriteList));
 
-        } 
-    }
+//Pinto la lista de favoritos
+renderFavoriteList();
 };
+
