@@ -88,10 +88,17 @@ const renderLi = (animeData) => {
 
         } 
     }
-    const allAnimes = document.querySelectorAll(".js-anime-img");
+    /* const allAnimes = document.querySelectorAll(".js-anime-img");
         for (const anime of allAnimes) {
          anime.addEventListener("click", handleFavorite);
-    }
+    } */
+   const allAnimes = document.querySelectorAll(".js-anime-img");
+   for (const anime of allAnimes) {
+    anime.addEventListener("click", (event) => {
+        event.currentTarget.classList.add("imgSelected");
+        handleFavorite(event);
+    })
+   }
 }
 
 // Buscar y llamar al servidor
@@ -117,13 +124,13 @@ const handleFavorite = (event) => {
         return anime.mal_id === idAnimeClicked;
     })
 
-
     //añadir ese anime a la lista de favoritos ---let favoriteList = [];---
     favoriteList.push(animeSelected);
 
+
     //Cuando vaya añadiendo favoritas a mi lista, voy guardando la lista en el localStorage
     localStorage.setItem("favoritesAnimes", JSON.stringify(favoriteList));
-
+   
     //Pinto la lista de favoritos
     renderFavoriteList();
 };
@@ -133,8 +140,14 @@ const handleFavorite = (event) => {
 const handleReset = () => {
     list.innerHTML = "";
     containerFavoriteList.innerHTML = "";
-    localStorage.removeItem("favoritesAnimes"); 
+    searchInput.value = "";
+ //entro en la lista de favoritos y elimino todos os animes
+        favoriteList.splice(0, favoriteList.length);
+
+    //vuelvo a guardar la lista de favoritos actualizada
+    localStorage.setItem("favoritesAnimes", JSON.stringify(favoriteList));
 };
+
 
 
 resetButton.addEventListener("click", handleReset);

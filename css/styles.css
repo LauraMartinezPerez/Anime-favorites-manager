@@ -98,6 +98,19 @@
 
 }
 
+.imgSelected {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items:center ;
+    gap: 20px;
+    padding: 10px;
+    background-color: rgb(80, 173, 255);
+
+}
+
 .title {
     font-family: "Bangers", system-ui;
     letter-spacing: 2px;
