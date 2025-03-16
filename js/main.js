@@ -3,6 +3,7 @@
 const list = document.querySelector(".js-list");
 const searchButton = document.querySelector(".js-button");
 const searchInput = document.querySelector(".js-search");
+const resetButton = document.querySelector(".js-reset");
 const containerFavoriteList = document.querySelector(".js-favorites-list");
 
 let favoriteList = []; // este es el array que guarda los animes favoritos
@@ -29,7 +30,7 @@ const renderFavoriteList = () => {
                 <i class="fa-solid fa-circle-xmark js-x" id="${serie.mal_id}"></i>
             </li>`
         } 
-        // Traigo los iconos X y hago evento clic (handleXIcon) a todos los iconos X que lleven clase "js-x"
+        // (B.5-Fav)Traigo los iconos X y hago evento clic (handleXIcon) a todos los iconos X que lleven clase "js-x"
         const xIcon = document.querySelectorAll(".js-x");
         for (const closeIcon of xIcon) {
             closeIcon.addEventListener("click", handleXIcon);
@@ -37,7 +38,7 @@ const renderFavoriteList = () => {
     }
 };
 
-// Funcion eliminar favoritos
+// (B.5-Fav) Funcion eliminar favoritos
 const handleXIcon = (event) => {
     event.preventDefault();
     const idfavAnimeClicked = parseInt(event.currentTarget.id);
@@ -60,30 +61,12 @@ const handleXIcon = (event) => {
 
 
 
-
 // Al cargar la página, obtener los favoritos del localStorage
 const favoritesLocalStorage = localStorage.getItem("favoritesAnimes");
 if (favoritesLocalStorage !== null) {
     favoriteList = JSON.parse(favoritesLocalStorage);
     renderFavoriteList();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //Pintar del servidor segun busqueda --> de lo pintado seleccionar fav
 const renderLi = (animeData) => {
@@ -145,8 +128,13 @@ const handleFavorite = (event) => {
     renderFavoriteList();
 };
 
-const iconClick = (ev) => {
-    
-}
+//(B.5-Reset)Funcion Reset
+
+const handleReset = () => {
+    list.innerHTML = "";
+    containerFavoriteList.innerHTML = "";
+    localStorage.removeItem("favoritesAnimes"); 
+};
 
 
+resetButton.addEventListener("click", handleReset);
