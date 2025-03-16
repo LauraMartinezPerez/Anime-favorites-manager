@@ -18,6 +18,11 @@
     letter-spacing: 3px;
     border-radius: 10px;
 }
+
+.btn-search:hover {
+    background-color: rgb(193, 51, 0);
+}
+
 .btn-reset {
     background-color: rgb(80, 173, 255);
     padding: 10px 30px;
@@ -28,11 +33,18 @@
     border-radius: 10px;
 }
 
+.btn-reset:hover {
+    background-color: rgb(7, 99, 180);
+}
+
 .input {
+
     width: 300px;
     padding: 15px 5px;
     border-radius: 10px;
-    border: coral solid 2px;
+    border: coral solid 3px;
+    font-size: 16px;
+    outline: none;
 }
 
 .anime-container {
@@ -95,7 +107,15 @@
     width: 100%;
     padding: 10px;
     background-color: coral;
+    transform-style: preserve-3d;
+    transition: transform .1s ease-in-out;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
 
+}
+
+.img:hover {
+    transform: scale(1.1);
 }
 
 .imgSelected {
@@ -106,8 +126,10 @@
     justify-content: space-between;
     align-items:center ;
     gap: 20px;
-    padding: 10px;
+    padding: 15px;
     background-color: rgb(80, 173, 255);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
 
 }
 
@@ -153,6 +175,8 @@
     padding: 10px;
     align-items: center;
     width: 150px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
 }
 
 .fa-solid {
