@@ -30,7 +30,7 @@ const renderFavoriteList = () => {
                 <i class="fa-solid fa-circle-xmark js-x" id="${serie.mal_id}"></i>
             </li>`
         } 
-        // (B.5-Fav)Traigo los iconos X y hago evento clic (handleXIcon) a todos los iconos X que lleven clase "js-x"
+        // (Bonus.5-Fav)Traigo los iconos X y hago evento clic (handleXIcon) a todos los iconos X que lleven clase "js-x"
         const xIcon = document.querySelectorAll(".js-x");
         for (const closeIcon of xIcon) {
             closeIcon.addEventListener("click", handleXIcon);
@@ -38,14 +38,13 @@ const renderFavoriteList = () => {
     }
 };
 
-// (B.5-Fav) Funcion eliminar favoritos
+// (Bonus.5-Fav) Funcion eliminar favoritos
 const handleXIcon = (event) => {
     event.preventDefault();
-    const idfavAnimeClicked = parseInt(event.currentTarget.id);
 
     //busco el anime clickado (uso findIndex xq si no cuando use el splice me va a eliminar el primer elemento que cumple la condicion y lo que quiero es que me localice la posicion del elemento clickado en el array para eliminar ese en concreto
     const favAnimeSelected = favoriteList.findIndex((anime) => 
-        anime.mal_id === idfavAnimeClicked
+        anime.mal_id === parseInt(event.currentTarget.id)
     );
 
     //entro en la lista de favoritos y elimino el anime clickado
@@ -130,12 +129,12 @@ const handleFavorite = (event) => {
     const animeSelected = allAnimesData.find((anime) => {
         return anime.mal_id === idAnimeClicked;
     })
-    //Bonus.5 busco el anime clickado en mis fav
+    // busco el anime clickado en mis fav
     const animeSelectedFav = favoriteList.find((anime) => {
         return anime.mal_id === idAnimeClicked;
     })   
 
-  // Si al hcer clic sobre un anime, no esta en mi lista de fav, me lo añade
+  // B.5 Si al hcer clic sobre un anime, no esta en mi lista de fav, me lo añade
     if (animeSelectedFav === undefined) {
         //añadir ese anime a la lista de favoritos ---let favoriteList = [];---
         favoriteList.push(animeSelected);
