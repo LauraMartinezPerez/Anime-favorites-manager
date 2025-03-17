@@ -17,14 +17,14 @@ const renderFavoriteList = () => {
    
         if (serie.images.jpg.image_url === "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png") { 
             containerFavoriteList.innerHTML += 
-            `<li class="js-anime-img anime-fav" id=${serie.mal_id}>
+            `<li class="point-anime-img anime-fav" id=${serie.mal_id}>
                  <img class="img-fav"  src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg">
                     <p class="title-fav">${serie.title}</p>
                    <i class="fa-solid fa-circle-xmark js-x" id="${serie.mal_id}"></i>
             </li>`
         } else {
             containerFavoriteList.innerHTML += 
-            `<li class="js-anime-img anime-fav" id=${serie.mal_id}>
+            `<li class="point-anime-img anime-fav" id=${serie.mal_id}>
                 <img class="img-fav"   src="${serie.images.jpg.image_url}">
                 <p class="title-fav">${serie.title}</p> 
                 <i class="fa-solid fa-circle-xmark js-x" id="${serie.mal_id}"></i>
@@ -75,31 +75,38 @@ const renderLi = (animeData) => {
     for(const serie of animeData) {
         if (serie.images.jpg.image_url === "https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png") { 
             list.innerHTML += 
-            `<li class="js-anime-img anime" id=${serie.mal_id}>
+            `<li class="point-anime-img js-anime-img anime" id=${serie.mal_id}>
                 <img class="img"  src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg">
                 <p class="title">${serie.title}</p>
              </li>`
         } else {
             list.innerHTML += 
-            `<li class="js-anime-img anime" id=${serie.mal_id}>
+            `<li class="point-anime-img js-anime-img anime" id=${serie.mal_id}>
                 <img class="img"   src="${serie.images.jpg.image_url}">
                 <p class="title">${serie.title}</p>
             </li>`
 
         } 
     }
-    /* const allAnimes = document.querySelectorAll(".js-anime-img");
-        for (const anime of allAnimes) {
-         anime.addEventListener("click", handleFavorite);
-    } */
+
    const allAnimes = document.querySelectorAll(".js-anime-img");
    for (const anime of allAnimes) {
     anime.addEventListener("click", (event) => {
         event.currentTarget.classList.add("imgSelected");
         handleFavorite(event);
     })
+
+//Bonus. 5: dejar seleccionados en resultados(add class) los animes que estan en favoritos
+    const torreznoFav = favoriteList.find((torreznoId) => 
+        torreznoId.mal_id === parseInt(anime.id));
+    if (torreznoFav !== undefined) {
+        anime.classList.add("imgSelected");
+    }     
    }
 }
+
+
+
 
 // Buscar y llamar al servidor
 const searchclick = (ev) => {
@@ -123,11 +130,22 @@ const handleFavorite = (event) => {
     const animeSelected = allAnimesData.find((anime) => {
         return anime.mal_id === idAnimeClicked;
     })
+    //Bonus.5 busco el anime clickado en mis fav
+    const animeSelectedFav = favoriteList.find((anime) => {
+        return anime.mal_id === idAnimeClicked;
+    })   
 
-    //añadir ese anime a la lista de favoritos ---let favoriteList = [];---
-    favoriteList.push(animeSelected);
-
-
+  // Si al hcer clic sobre un anime, no esta en mi lista de fav, me lo añade
+    if (animeSelectedFav === undefined) {
+        //añadir ese anime a la lista de favoritos ---let favoriteList = [];---
+        favoriteList.push(animeSelected);
+        // Si esta en mi lista de favoritos, me lo elimina
+    } else {
+        const animeSelectedFavDos = favoriteList.findIndex((anime) => 
+            anime.mal_id === idAnimeClicked);
+        favoriteList.splice(animeSelectedFavDos, 1);
+    }   
+   
     //Cuando vaya añadiendo favoritas a mi lista, voy guardando la lista en el localStorage
     localStorage.setItem("favoritesAnimes", JSON.stringify(favoriteList));
    
@@ -147,7 +165,5 @@ const handleReset = () => {
     //vuelvo a guardar la lista de favoritos actualizada
     localStorage.setItem("favoritesAnimes", JSON.stringify(favoriteList));
 };
-
-
 
 resetButton.addEventListener("click", handleReset);
