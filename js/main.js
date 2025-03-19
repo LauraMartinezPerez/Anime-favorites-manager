@@ -77,12 +77,14 @@ const renderLi = (animeData) => {
             `<li class="point-anime-img js-anime-img anime" id=${serie.mal_id}>
                 <img class="img"  src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg">
                 <p class="title">${serie.title}</p>
+                <p>${serie.aired.string}</p>
              </li>`
         } else {
             list.innerHTML += 
             `<li class="point-anime-img js-anime-img anime" id=${serie.mal_id}>
                 <img class="img"   src="${serie.images.jpg.image_url}">
                 <p class="title">${serie.title}</p>
+                <p>${serie.aired.string}</p>
             </li>`
 
         } 
@@ -115,8 +117,9 @@ const searchclick = (ev) => {
         .then(response => response.json())
         .then(patata /* ;-) */ => {
         renderLi (patata.data);   
+        console.log(patata.data);
         }
-    )
+    ) 
 }; 
 
 searchButton.addEventListener("click", searchclick);
