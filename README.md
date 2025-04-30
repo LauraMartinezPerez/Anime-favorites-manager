@@ -3,7 +3,7 @@
 Un proyecto de programación web en JavaScript para gestionar, buscar y organizar tus series de anime favoritas.
 
 🚀 **¿Qué es Anime-favorites-manager?**  
-AnimeHub es una aplicación web interactiva donde puedes buscar y organizar tus series de anime favoritas. 
+Anime Favorites Manager es una aplicación web interactiva donde puedes buscar y organizar tus series de anime favoritas. 
 Llama a la API de anime, muestra un listado de series, y permite filtrar, agregar, resaltar y eliminar series favoritas, todo mientras navegas en una interfaz colorida y dinámica.
 
 🛠 **Tecnologías Usadas**
