@@ -52,3 +52,19 @@ Puedes ver la aplicación funcionando en [**Anime-favorites-manager en vivo**](h
 1. Clona este repositorio en tu máquina local:
 
    git clone https://github.com/tu-usuario/Anime-favorites-manager.git
+   
+2. Ábrelo con Live Server
+3. 
+## 💡 Inspiración
+
+Este proyecto fue desarrollado como parte de mi formación en desarrollo web con la práctica de tecnologías modernas como JavaScript, Css y HTML.
+
+## 📬 Contacto
+
+Si tienes preguntas, sugerencias o simplemente quieres decir "¡Hola!", no dudes en contactarme:
+
+- **LinkedIn**: [Ir a Linkedin](https://www.linkedin.com/in/laura-martinez-perez-a5aa78299)
+
+---
+
+¡Gracias por visitar este proyecto! 🛸
