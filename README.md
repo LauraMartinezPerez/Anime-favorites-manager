@@ -1,19 +1,19 @@
-💥 **Anime-favorites-manager** 💥  
+## 💥 **Anime-favorites-manager** 💥  
 ¡Tu buscador de animes favoritos al alcance de un clic!  
 Un proyecto de programación web en JavaScript para gestionar, buscar y organizar tus series de anime favoritas.
 
-🚀 **¿Qué es Anime-favorites-manager?**  
+## 🚀 ¿Qué es Anime-favorites-manager?
 Anime Favorites Manager es una aplicación web interactiva donde puedes buscar y organizar tus series de anime favoritas. 
 Llama a la API de anime, muestra un listado de series, y permite filtrar, agregar, resaltar y eliminar series favoritas, todo mientras navegas en una interfaz colorida y dinámica.
 
-🛠 **Tecnologías Usadas**
+## 🛠 Tecnologías Usadas
 - **HTML5**: Estructura de la web.
 - **CSS3**: Estilos y diseño visual responsivo.
 - **JavaScript (Vanilla)**: Lógica de interacción y manejo de datos (API, favoritos, Local Storage).
 - **API externa de Anime**: Para buscar series de anime en tiempo real.
 - **LocalStorage**: Para guardar tus series favoritas de forma persistente.
   
-🔧 **Funcionalidades Principales**
+## 🔧 Funcionalidades Principales
 1. **Búsqueda de Series Anime**:  
    Permite buscar por nombre de serie usando la API de anime, mostrando una lista con imágenes y títulos).
    
@@ -32,8 +32,8 @@ Llama a la API de anime, muestra un listado de series, y permite filtrar, agrega
 6. **Diseño Visual**:  
    El diseño está inspirado en el estilo vibrante y colorido del anime, utilizando fuentes y colores llamativos que recuerdan al mundo otaku.
 
-💡 **Lógica Aplicada**
-- **Interacción Dinámica**:  
+## 💡 Lógica Aplicada
+- **JavaScript-Interacción Dinámica**:  
    La aplicación utiliza eventos de JavaScript para permitir la interacción en tiempo real (clics para agregar/eliminar favoritos, resaltar imágenes, etc.).
    
 - **Manejo de API**:  
@@ -45,11 +45,11 @@ Llama a la API de anime, muestra un listado de series, y permite filtrar, agrega
 - **CSS**:  
    El diseño está pensado para ofrecer una experiencia visual única, con un estilo "anime" (colores brillantes, tipografías que evocan la estética del anime y transiciones suaves).
 
-🔗 **Enlace de la Aplicación**  
+## 🔗 Enlace de la Aplicación* 
 Puedes ver la aplicación funcionando en [**Anime-favorites-manager en vivo**](https://lauramartinezperez.github.io/Anime-favorites-manager/).
 
- 📝 **Cómo Empezar**
-1. Clona este repositorio en tu máquina local:
+ ## 📝 Cómo Empezar
+1. **Clona este repositorio en tu máquina local:**
 
    git clone https://github.com/tu-usuario/Anime-favorites-manager.git
    
